@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+html,
+body {
+  width: 100%;
+  min-width: 500px;
+  height: 100%;
+  background-color: #e6e6e6;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#bg {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: sticky;
+  top: 15rem;
+  align-items: center;
+}
+
+main {
+  margin-top: -35rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+td,
+th {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+th {
+  cursor: pointer;
+}
+
+caption {
+  font-size: xx-large;
+  font-weight: bold;
+  padding-bottom: 2rem;
+}
+
+tbody tr:nth-child(odd) {
+  background: #c3c6c774;
+}
+
+table {
+  border-collapse: collapse;
+  z-index: 0;
+  padding: 5rem;
+}
+
+thead {
+  background-color: #38454c;
+  color: #e6e6e6;
+  position: sticky;
+  top: 0px;
+}
+
+header {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+img {
+  background-color: white;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #38454c;
+  z-index: 1;
+}
+
+/* Portrait */
+@media (max-width: 600px) {
+  .hide {
+    display: none;
+  }
+  html,
+  body {
+    font-size: small;
+  }
+  td,
+  th {
+    text-align: center;
+  }
+  thead {
+    position: -webkit-sticky;
+  }
+}
+
+input {
+  margin-bottom: 1rem;
+  z-index: 0;
+}
+
+select {
+  z-index: 0;
+}
+
+.above {
+  z-index: 0;
+}
+
+.headerSortDown::after,
+.headerSortUp::after {
+  content: "";
+  position: relative;
+  left: 4px;
+  border: 6px solid transparent;
+}
+
+.headerSortDown::after {
+  top: 10px;
+  border-top-color: silver;
+}
+
+.headerSortUp::after {
+  top: -15px;
+  border-bottom-color: silver;
+}
+
+.headerSortDown,
+.headerSortUp {
+  padding-right: 10px;
+}
+
+.headerSortDown:hover,
+.headerSortUp:hover {
+  border-bottom-color: black;
+}
+
+</style>
+    <title>One Moment Please</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <div class="col">
+                <div class="row">
+                    <p>Made by</p>
+                    <a target="_blank" href="https://www.daubit.org">
+                        <img src="https://daubit.org/img/daubit_apps_logo.png" />
+                    </a>
+                </div>
+                <div class="col">
+                    <a class="row" target="_blank" href="https://www.tiktok.com/@cryptobeard">
+                        <p>
+                            Follow @cryptobeard
+                        </p>
+                        <svg width="25px" height="25px"
+                            viewBox="62.370000000000005 70.49 675.3000000000001 675.3000000000001"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g fill="#ee1d52">
+                                <path
+                                    d="M196 498.32l1.64 4.63c-.21-.53-.81-2.15-1.64-4.63zM260.9 393.39c2.88-24.88 12.66-38.81 31.09-53.09 26.37-19.34 59.31-8.4 59.31-8.4V267a135.84 135.84 0 0 1 23.94 1.48V352s-32.93-10.94-59.3 8.41c-18.42 14.27-28.22 28.21-31.09 53.09-.09 13.51 2.34 31.17 13.53 46.44q-4.15-2.22-8.46-5.06c-24.65-17.27-29.14-43.18-29.02-61.49zM511.25 147c-18.14-20.74-25-41.68-27.48-56.39h22.82s-4.55 38.57 28.61 76.5l.46.51A132.76 132.76 0 0 1 511.25 147zM621.18 205.8v81.84s-29.12-1.19-50.67-6.91c-30.09-8-49.43-20.27-49.43-20.27s-13.36-8.75-14.44-9.36v169c0 9.41-2.47 32.91-10 52.51-9.83 25.64-25 42.47-27.79 45.91 0 0-18.45 22.75-51 38.07-29.34 13.82-55.1 13.47-62.8 13.82 0 0-44.53 1.84-84.6-25.33a169.63 169.63 0 0 1-24.16-20.26l.2.15c40.08 27.17 84.6 25.33 84.6 25.33 7.71-.35 33.47 0 62.8-13.82 32.52-15.32 51-38.07 51-38.07 2.76-3.44 18-20.27 27.79-45.92 7.51-19.59 10-43.1 10-52.51V231c1.08.62 14.43 9.37 14.43 9.37s19.35 12.28 49.44 20.27c21.56 5.72 50.67 6.91 50.67 6.91v-64.13c9.96 2.33 18.45 2.96 23.96 2.38z" />
+                            </g>
+                            <path
+                                d="M597.23 203.42v64.11s-29.11-1.19-50.67-6.91c-30.09-8-49.44-20.27-49.44-20.27s-13.35-8.75-14.43-9.37V400c0 9.41-2.47 32.92-10 52.51-9.83 25.65-25 42.48-27.79 45.92 0 0-18.46 22.75-51 38.07-29.33 13.82-55.09 13.47-62.8 13.82 0 0-44.52 1.84-84.6-25.33l-.2-.15a157.5 157.5 0 0 1-11.93-13.52c-12.79-16.27-20.63-35.51-22.6-41a.24.24 0 0 1 0-.07c-3.17-9.54-9.83-32.45-8.92-54.64 1.61-39.15 14.81-63.18 18.3-69.2A162.84 162.84 0 0 1 256.68 303a148.37 148.37 0 0 1 42.22-25 141.61 141.61 0 0 1 52.4-11v64.9s-32.94-10.9-59.3 8.4c-18.43 14.28-28.21 28.21-31.09 53.09-.12 18.31 4.37 44.22 29 61.5q4.31 2.85 8.46 5.06a65.85 65.85 0 0 0 15.5 15.05c24.06 15.89 44.22 17 70 6.68C401.06 474.78 414 459.23 420 442c3.77-10.76 3.72-21.59 3.72-32.79V90.61h60c2.48 14.71 9.34 35.65 27.48 56.39a132.76 132.76 0 0 0 24.41 20.62c2.64 2.85 16.14 16.94 33.47 25.59a130.62 130.62 0 0 0 28.15 10.21z" />
+                            <path d="M187.89 450.39v.05l1.48 4.21c-.17-.49-.72-1.98-1.48-4.26z" fill="#69c9d0" />
+                            <path
+                                d="M298.9 278a148.37 148.37 0 0 0-42.22 25 162.84 162.84 0 0 0-35.52 43.5c-3.49 6-16.69 30.05-18.3 69.2-.91 22.19 5.75 45.1 8.92 54.64a.24.24 0 0 0 0 .07c2 5.44 9.81 24.68 22.6 41a157.5 157.5 0 0 0 11.93 13.52 166.64 166.64 0 0 1-35.88-33.64c-12.68-16.13-20.5-35.17-22.54-40.79a1 1 0 0 1 0-.12v-.07c-3.18-9.53-9.86-32.45-8.93-54.67 1.61-39.15 14.81-63.18 18.3-69.2a162.68 162.68 0 0 1 35.52-43.5 148.13 148.13 0 0 1 42.22-25 144.63 144.63 0 0 1 29.78-8.75 148 148 0 0 1 46.57-.69V267a141.61 141.61 0 0 0-52.45 11z"
+                                fill="#69c9d0" />
+                            <path
+                                d="M483.77 90.61h-60v318.61c0 11.2 0 22-3.72 32.79-6.06 17.22-18.95 32.77-36.13 39.67-25.79 10.36-45.95 9.21-70-6.68a65.85 65.85 0 0 1-15.54-15c20.49 10.93 38.83 10.74 61.55 1.62 17.17-6.9 30.08-22.45 36.12-39.68 3.78-10.76 3.73-21.59 3.73-32.78V70.49h82.85s-.93 7.92 1.14 20.12zM597.23 185.69v17.73a130.62 130.62 0 0 1-28.1-10.21c-17.33-8.65-30.83-22.74-33.47-25.59a93.69 93.69 0 0 0 9.52 5.48c21.07 10.52 41.82 13.66 52.05 12.59z"
+                                fill="#69c9d0" />
+                            <path
+                                d="M486.85 701.51a22.75 22.75 0 0 1-1-6.73v-.16a24.53 24.53 0 0 0 1 6.89zM536.44 694.62v.16a23.07 23.07 0 0 1-1 6.73 24.89 24.89 0 0 0 1-6.89z"
+                                fill="none" />
+                            <path
+                                d="M485.84 694.78a22.75 22.75 0 0 0 1 6.73 2.59 2.59 0 0 0 .14.45 25.28 25.28 0 0 0 24.16 17.8v25.59c-12.46 0-21.38.44-35-7.59-15.44-9.16-24.14-25.91-24.14-43.3 0-17.94 9.74-35.91 26.25-44.57 12-6.28 21.09-6.32 32.92-6.32v25.58a25.31 25.31 0 0 0-25.31 25.31z"
+                                fill="#69c9d0" />
+                            <path
+                                d="M536.64 694.78a23.07 23.07 0 0 1-1 6.73c0 .15-.09.3-.14.45a25.3 25.3 0 0 1-24.16 17.8v25.59c12.45 0 21.38.44 34.95-7.59 15.49-9.16 24.21-25.91 24.21-43.3 0-17.94-9.74-35.91-26.25-44.57-12-6.28-21.09-6.32-32.91-6.32v25.58a25.31 25.31 0 0 1 25.3 25.31z"
+                                fill="#ee1d52" />
+                            <path
+                                d="M119.51 620.36h93.71l-8.66 25.78H180v98.67h-30.13v-98.67h-30.36zm248.35 0v25.78h30.36v98.67h30.17v-98.67h24.52l8.66-25.78zm-134.25 29.38A14.6 14.6 0 1 0 219 635.15a14.59 14.59 0 0 0 14.61 14.59zM219 744.81h29.58v-84.75H219zM355 649h-34.6l-29.82 29.82v-58.36h-29.39l-.09 124.35h29.67v-32.4L300 704l28.8 40.77h31.72l-41.72-59.62zm283.77 36.17L674.94 649h-34.59l-29.83 29.82v-58.36h-29.38L581 744.81h29.68v-32.4L620 704l28.8 40.77h31.73zm-76.06 9.27c0 28.1-23.09 50.89-51.57 50.89s-51.57-22.79-51.57-50.89 23.09-50.89 51.57-50.89 51.57 22.8 51.57 50.91zm-26.27 0a25.3 25.3 0 1 0-25.3 25.3 25.3 25.3 0 0 0 25.3-25.28z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div>
+        <div id="bg">
+            <svg width="500" height="600" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M13.231 31.5214C13.2328 26.5221 13.2328 21.5227 13.231 16.5231C13.231 16.4806 13.2451 16.435 13.2156 16.3953C13.2023 16.3961 13.1891 16.3944 13.1767 16.3903C12.3918 15.936 11.6067 15.4807 10.8211 15.0246C10.0677 14.5895 9.31228 14.1579 8.55875 13.7228C7.61025 13.1754 6.66223 12.626 5.71467 12.0747C5.12167 11.7308 4.52276 11.3905 3.92755 11.0475C3.159 10.6041 2.39088 10.1601 1.62304 9.71553C1.09764 9.41085 0.573925 9.10294 0.0480561 8.79688C-0.0322539 8.8261 0.012355 8.89358 0.012355 8.93965C0.00972646 13.9323 0.00898093 18.9246 0.0101953 23.9166C0.00822771 23.9606 0.00930374 24.0047 0.0133388 24.0485C0.287018 24.2113 0.560744 24.376 0.837567 24.5361C1.2691 24.7856 1.70424 25.0301 2.1348 25.2791C2.55494 25.5218 2.97329 25.7676 3.39338 26.0113C3.83223 26.2652 4.27127 26.5186 4.71064 26.7717L5.96007 27.4942C6.39526 27.745 6.83088 27.9959 7.26603 28.245C7.68616 28.4881 8.10536 28.7331 8.52591 28.9748C8.95702 29.2234 9.38982 29.4688 9.82084 29.7174C10.2419 29.9601 10.6606 30.206 11.0807 30.4473C11.5193 30.7009 11.9581 30.9541 12.3971 31.2067C12.6627 31.3591 12.9304 31.5078 13.1972 31.6579C13.2684 31.6282 13.231 31.5671 13.231 31.5215V31.5214ZM8.99661 24.2691C8.99661 24.2865 8.99431 24.3038 8.99201 24.3417C8.50714 24.062 8.03962 23.7943 7.57249 23.5206C6.50999 22.9048 5.44512 22.2907 4.37766 21.6782C4.2746 21.6194 4.24405 21.556 4.24452 21.4415C4.24813 19.7218 4.24813 18.0021 4.24452 16.282V16.1388C4.30696 16.1288 4.34209 16.1685 4.38136 16.1908C5.88444 17.0581 7.38714 17.9256 8.88937 18.7931C8.95195 18.8291 8.99891 18.8574 8.9984 18.9487C8.99661 20.7212 8.99661 22.494 8.9984 24.2668L8.99661 24.2691Z"
+                    fill="rgba(237,237,237, 0.9)"></path>
+                <path
+                    d="M15.9943 6.34833V6.52671C15.9943 9.23017 15.9952 11.934 15.997 14.6381C16.0078 14.7394 15.9541 14.8364 15.8639 14.8785C15.2139 15.2567 14.5666 15.6398 13.9219 16.0276C13.8652 16.0648 13.7919 16.0614 13.7388 16.019C13.4247 15.8337 13.111 15.648 12.7975 15.4617C12.4755 15.2694 12.1562 15.077 11.8324 14.8886C11.7473 14.8475 11.697 14.7558 11.7066 14.6597C11.7101 11.97 11.7109 9.28016 11.709 6.59014C11.709 6.34976 11.7062 6.34446 11.5118 6.45939C10.8795 6.83346 10.2499 7.21377 9.61841 7.58884C9.01092 7.94751 8.40328 8.30091 7.8004 8.65862C7.09033 9.0782 6.38117 9.49925 5.67294 9.92174C5.34585 10.1141 5.01872 10.3093 4.6938 10.5078C4.6268 10.5558 4.53802 10.5573 4.46952 10.5117C3.97094 10.2139 3.47241 9.91662 2.97397 9.61978C2.53134 9.35725 2.08587 9.09906 1.64473 8.83607C1.20354 8.57304 0.750238 8.3009 0.285156 8.02202C0.58239 7.84652 0.866119 7.68015 1.14836 7.51141C1.94754 7.03474 2.74628 6.55796 3.54456 6.08099C4.21607 5.68239 4.89058 5.28907 5.56214 4.89048C6.33897 4.42888 7.11383 3.9625 7.89057 3.49996C8.49479 3.14029 9.0984 2.78276 9.70161 2.42726C10.3772 2.02627 11.0523 1.62558 11.7272 1.22523C12.2258 0.929364 12.7243 0.634789 13.2227 0.341485C13.3999 0.236666 13.5789 0.134739 13.7538 0.0255698C13.8043 -0.0103771 13.8718 -0.00825452 13.9201 0.0308764C15.0225 0.689604 16.1264 1.34669 17.2318 2.00222C18.1395 2.54008 19.0474 3.07764 19.9556 3.61489C20.8592 4.15147 21.7629 4.68916 22.6664 5.228C23.5741 5.76715 24.4822 6.30489 25.3911 6.84114C26.0408 7.2258 26.6897 7.61125 27.3382 7.99748C27.3517 8.00914 27.364 8.02219 27.3751 8.03645C27.0587 8.22493 26.7493 8.41051 26.4404 8.59469C25.3841 9.22262 24.326 9.84722 23.2726 10.48C23.1515 10.5526 23.0655 10.5492 22.9454 10.48C20.6749 9.12311 18.4027 7.77056 16.1284 6.42236C16.0906 6.40021 16.0514 6.38004 15.9943 6.34831V6.34833Z"
+                    fill="rgba(237,237,237, 0.9)"></path>
+                <path
+                    d="M23.1896 18.2348C22.9799 18.8556 22.768 19.4754 22.5597 20.0972C22.0679 21.569 21.5773 23.0411 21.0875 24.5132C21.0744 24.5524 21.0753 24.6021 21.0168 24.633C20.612 24.0762 20.2071 23.518 19.7986 22.9621C19.4715 22.5173 19.14 22.0761 18.8116 21.6326C18.7113 21.4968 18.6146 21.3563 18.5161 21.2209C18.4523 21.2494 18.4868 21.307 18.4864 21.348C18.4833 21.7966 18.4864 22.2451 18.4864 22.6937C18.4864 24.9767 18.4864 27.2595 18.4864 29.5423C18.4864 29.5915 18.5088 29.6477 18.4648 29.6915C18.2227 29.8296 17.9795 29.9677 17.7388 30.1087C17.2967 30.3678 16.8553 30.6288 16.4144 30.8916C15.76 31.2812 15.1055 31.6713 14.4508 32.0618C14.4135 32.08 14.3751 32.0955 14.3357 32.1079V31.9402C14.3357 26.9306 14.3344 21.9207 14.332 16.9108C14.332 16.7625 14.3671 16.6851 14.4994 16.6082C15.7077 15.9045 16.9106 15.1897 18.1148 14.4783C18.2237 14.4138 18.3371 14.3562 18.4401 14.2835C18.5229 14.2254 18.5669 14.2374 18.6258 14.3203C19.163 15.0571 19.7028 15.7915 20.2453 16.5235C20.5089 16.8818 20.7728 17.2394 21.037 17.5965C21.0568 17.6232 21.0667 17.6624 21.1194 17.6697C21.2434 17.3013 21.3677 16.9304 21.4922 16.5571C22.0428 14.9053 22.593 13.2531 23.1428 11.6003C23.1675 11.5208 23.2221 11.4546 23.2943 11.4162C24.571 10.6645 25.847 9.91141 27.1222 9.15676C27.2008 9.11072 27.2624 9.02597 27.3754 9.03151V9.16225C27.3754 14.1974 27.3754 19.234 27.3754 24.2719C27.3754 24.3682 27.3569 24.4244 27.2642 24.4782C26.6155 24.854 25.9727 25.2404 25.3272 25.6227C24.653 26.0218 23.9783 26.4209 23.3028 26.82C23.2885 26.8299 23.2748 26.8408 23.2619 26.8527C23.1976 26.8261 23.2273 26.768 23.2273 26.7251C23.2273 26.0947 23.2273 25.4642 23.2273 24.8337C23.2273 22.6809 23.2273 20.5278 23.2273 18.3743C23.22 18.3278 23.257 18.2656 23.1896 18.2348Z"
+                    fill="rgba(237,237,237, 0.9)"></path>
+            </svg>
+        </div>
+        <main>
+            <h1>One Moment Please</h1>
+            <div class="above">
+                <input id="player" placeholder="Search for players...">
+                <select id="selectCategory" name="category">
+                    <option value="" selected disabled hidden>Category</option>
+                </select>
+                <select id="selectTier" name="tier">
+                    <option value="" selected disabled hidden>Tier</option>
+                </select>
+                <select id="selectSeries" name="series">
+                    <option value="" selected disabled hidden>Series</option>
+                </select>
+                <select id="selectSet" name="set">
+                    <option value="" selected disabled hidden>Set</option>
+                </select>
+                <button id="reset">Reset</button>
+            </div>
+            <p id="load">Loading...</p>
+        </main>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+    <script>
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+const DAY = 1000 * 60 * 60 * 24
+const tableDOM = "<table></table>"
+const captionDom = "<caption></caption>"
+const theadDom = "<thead></thead>"
+const tbodyDom = "<tbody></tbody>"
+const thDOM = "<th></th>"
+const trDom = "<tr></tr>"
+const tdDom = "<td></td>"
+const aDom = "<a></a>"
+const pDom = "<p></p>"
+const h3Dom = "<h3></h3>"
+const h6Dom = "<h6></h6>"
+const divDom = "<div></div>"
+const imgDom = "<img></img>"
+const inputDom = "<input></input>"
+const optionDom = "<option></option>"
+const state = {
+    players: [],
+    tmp: [],
+    reversed: true,
+    filters: {},
+    sortBy: "Player"
+}
+
+const escapeCORS = `https://api.allorigins.win/get?url=`
+const getPageUrl = (pageNum) => `https://www.otmnft.com/api/nbatopshot/market/moments?limit=100&page=${pageNum}&sortby=playerName`
+
+function filterPlayers(players) {
+    const amounts = {}
+    for (let player of players) {
+        if (amounts[player.playerName]) {
+            amounts[player.playerName].amount++
+        } else {
+            amounts[player.playerName] = {
+                amount: 1,
+                link: player.topshotLink,
+                category: player.playCategory,
+                tier: player.tier,
+                supply: player.circulationCount,
+                set: player.setName,
+                image: player.image,
+                price: player.price,
+                series: player.series,
+                badges: {
+                    rookiePremiereBadge: player.rookiePremiereBadge,
+                    topShotDebutBadge: player.topShotDebutBadge,
+                    rookieMintBadge: player.rookieMintBadge,
+                    rookieYearBadge: player.rookieYearBadge,
+                    championshipYearBadge: player.championshipYearBadge,
+                    mvpYearBadge: player.mvpYearBadge,
+                },
+            }
+        }
+    }
+    const singles = []
+    for (let player in amounts) {
+        const { amount } = amounts[player]
+        if (amount === 1) {
+            singles.push({ name: player, ...amounts[player] })
+        }
+    }
+    return singles
+}
+
+async function fetchData() {
+    let players = []
+    let next = getPageUrl(1)
+    while (next) {
+        const response = await fetch(`${escapeCORS}${encodeURIComponent(next)}`)
+        const json = await response.json()
+        const result = JSON.parse(json.contents)
+        const data = result.data || []
+        next = result.next
+        players = [...players, ...data]
+    }
+    return filterPlayers(players);
+}
+
+function handleSort(event) {
+    const header = event.target.textContent
+    state.sortBy = header
+    const { tmp: players, reversed } = state
+    let comp;
+    switch (header) {
+        case "Set": comp = sortByString("set", reversed); break;
+        case "Tier": comp = sortByString("tier", reversed); break;
+        case "Price": comp = sortByNumber("price", reversed); break;
+        case "Player": comp = sortByString("name", reversed); break;
+        case "Supply": comp = sortByNumber("supply", reversed); break;
+        case "Series": comp = sortByString("series", reversed); break;
+        case "Badges": comp = sortByBoolObj("badges", reversed); break;
+        case "Category": comp = sortByString("category", reversed); break;
+        default: return;
+    }
+    state.reversed = !reversed
+    state.tmp = players.sort(comp)
+    createMain(state.tmp)
+}
+
+function sortByString(attribute = "name", reversed = false) {
+    if (reversed) {
+        return (a, b) => String(b[attribute]).localeCompare(String(a[attribute]))
+    } else {
+        return (a, b) => String(a[attribute]).localeCompare(String(b[attribute]))
+    }
+}
+
+function sortByNumber(attribute = "price", reversed = false) {
+    if (reversed) {
+        return (a, b) => b[attribute] - a[attribute]
+    } else {
+        return (a, b) => a[attribute] - b[attribute]
+    }
+}
+
+function sortByBoolObj(attribute = "badges", reversed = false) {
+    if (reversed) {
+        return (a, b) => Object.values(b[attribute]).filter((a) => a).length - Object.values(a[attribute]).filter((a) => a).length
+    } else {
+        return (a, b) => Object.values(a[attribute]).filter((a) => a).length - Object.values(b[attribute]).filter((a) => a).length
+    }
+}
+
+function createHeaders() {
+    const headers = ["Player", "Category", "Tier", "Series", "Badges", "Set", "Supply", "Price"]
+    const result = []
+    const thead = $(theadDom)
+    const tr = $(trDom)
+    for (const head of headers) {
+        const th = $(thDOM)
+        if (head === "Badges") {
+            th.attr("class", "hide")
+        }
+        if (state.sortBy === head) {
+            th.attr("class", state.reversed ? "headerSortUp" : "headerSortDown")
+        }
+        th.on("click", handleSort)
+        th.text(head)
+        result.push(th)
+    }
+    tr.append(result)
+    thead.append(tr)
+    return thead
+}
+
+function createBadges(badges) {
+    const badgeNames = {
+        rookiePremiereBadge: "Rookie Premiere",
+        topShotDebutBadge: "Topshot Debut",
+        rookieMintBadge: "Rookie Mint",
+        rookieYearBadge: "Rookie Year",
+        championshipYearBadge: "Championship Year",
+        mvpYearBadge: "MVP Year",
+    }
+    const td = $(tdDom)
+    for (const badge in badges) {
+        if (badges[badge]) {
+            const p = $(pDom)
+            p.text(badgeNames[badge])
+            td.append(p)
+        }
+    }
+    return td;
+}
+
+function createLink(link, description) {
+    const td = $(tdDom)
+    const a = $(aDom)
+    a.attr("href", link)
+    a.attr("target", "_blank")
+    for (const part of description.split(" ")) {
+        const p = $(pDom)
+        p.text(part)
+        p.appendTo(a)
+    }
+    a.appendTo(td)
+    return td
+}
+
+function createData(player) {
+    const data = []
+    const td_name = createLink(player.link, player.name)
+    data.push(td_name)
+    const td_cat = $(tdDom).text(player.category)
+    data.push(td_cat)
+    const td_tier = $(tdDom).text(player.tier)
+    data.push(td_tier)
+    const td_series = $(tdDom).text(player.series)
+    data.push(td_series)
+    const td_badges = createBadges(player.badges)
+    td_badges.attr("class", "hide")
+    data.push(td_badges)
+    const td_set = $(tdDom).text(player.set)
+    data.push(td_set)
+    const td_supply = $(tdDom).text(player.supply)
+    data.push(td_supply)
+    const td_price = $(tdDom).text(`${player.price}$`)
+    data.push(td_price)
+    return data
+
+}
+
+function createTable(players = []) {
+    const table = $(tableDOM)
+    const headers = createHeaders();
+    const tbody = $(tbodyDom)
+    table.append(headers)
+    for (const player of players) {
+        const tr = $(trDom)
+        const playerData = createData(player)
+        tr.append(playerData)
+        tr.appendTo(tbody)
+    }
+    table.append(tbody)
+    return table
+}
+
+function createMain(players = []) {
+    $("table").remove()
+    $("#load").remove()
+    if (players.length === 0) {
+        const table = createTable(players)
+        $("main").append(table)
+        const p = $(pDom)
+        p.text("No moments found...").attr("id", "load").attr("class", "above")
+        $("main").append(p)
+    } else {
+        const table = createTable(players)
+        $("main").append(table)
+    }
+}
+
+function searchPlayers(event) {
+    const { players } = state
+    const search = event.target.value
+    state.tmp = players.filter((player) => player.name.includes(search))
+    createMain(state.tmp)
+}
+
+function createOptions(options) {
+    const result = []
+    for (const option of options) {
+        const opt = $(optionDom)
+        opt.attr("value", option)
+        opt.text(option)
+        result.push(opt)
+    }
+    return result
+}
+
+function handleSelect(event) {
+    const { tmp: players } = state
+    const name = event.target.name
+    const value = event.target.value
+    if (value !== "") {
+        state.filters[name] = value
+    } else {
+        delete state.filters[name]
+    }
+    const filteredPlayers = players.filter((player) => {
+        const filters = state.filters
+        for (const filter in filters) {
+            const value = filters[filter]
+            if (player[filter] != value) return false
+        }
+        return true
+    })
+    createMain(filteredPlayers)
+}
+
+function createSelect(players) {
+    const selectors = ["#selectCategory", "#selectTier", "#selectSeries", "#selectSet"]
+    const set = new Set(players.map((player) => player.set))
+    const tier = new Set(players.map((player) => player.tier))
+    const series = new Set(players.map((player) => player.series))
+    const category = new Set(players.map((player) => player.category))
+    const optionValues = [category, tier, series, set]
+    for (const i in selectors) {
+        const options = createOptions(optionValues[i])
+        $(selectors[i]).append(options).on("click", handleSelect)
+    }
+}
+
+function reset() {
+    const selectors = ["selectCategory", "selectTier", "selectSeries", "selectSet"]
+    for (const selector of selectors) {
+        document.getElementById(selector).selectedIndex = "0";
+    }
+    state.tmp = state.players
+    state.filters = {}
+    createMain(state.players)
+}
+
+async function main() {
+    const data = JSON.parse(localStorage.getItem("players")) || { timestamp: 0, players: [] }
+    const now = Date.now()
+    if (now - DAY > data.timestamp || data.players.length === 0) {
+        const players = await fetchData()
+        state.players = players
+        state.tmp = players
+        localStorage.setItem("players", JSON.stringify({ timestamp: now, players: players }))
+    } else {
+        state.players = data.players
+        state.tmp = data.players
+    }
+    $("#load").remove()
+    $("#reset").on("click", reset)
+    $("#player").on("input", searchPlayers)
+    createSelect(state.players)
+    createMain(state.players)
+}
+
+main()
+},{}]},{},[1]);
+
+</script>
+</body>
+
+</html>
